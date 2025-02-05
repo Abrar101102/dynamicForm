@@ -1,0 +1,19 @@
+<div class="mb-3">
+    <label class="form-label">{{ field.label }}</label>
+    <input
+      type="text"
+      class="form-control"
+      [placeholder]="field.placeholder"
+      [(ngModel)]="value"
+      (ngModelChange)="handleInput($event)"
+      (blur)="onTouched()"
+      [required]="field.required"
+      email
+      #email="ngModel"
+    />
+    @if(email.invalid && email.touched){
+      <div>
+          <small>*Enter a valid email address</small>
+      </div>
+  }
+</div>

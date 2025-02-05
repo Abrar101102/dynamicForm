@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card p-4 shadow-lg">
+<p class="text-center fw-bold fs-4">Dynamic Form</p>
+<form #dynamicForm="ngForm" (ngSubmit)="SubmitForm()"><!--#dynamicForm is a tempkate reference variable -->
+    <div>
+        @for (field of fields; track field.widget) {
+            @switch (field.widget) {
+                @case ('textfield') {
+                    <app-textfield [field]="field" name="{{field.widget}}"  ngModel required></app-textfield>
+                    
+                }
+                @case ('numberfield') {
+                    <app-number-field [field]="field" name="{{field.widget}}" ngModel required></app-number-field> 
+
+                }
+
+                @case('email'){
+                    <app-email [field]="field" name="{{field.widget}}"  ngModel required email></app-email>
+                    
+                }
+                @case('combo'){
+                    <app-combo [field]="field" name="{{field.widget}}" ngModel ></app-combo>
+                    
+                }
+                @case('radio'){
+                    <app-radio [field]="field" name="{{field.widget}}" ngModel ></app-radio>
+                    
+                }
+                @case('checkbox'){
+                    <app-checkbox [field]="field" name="{{field.widget}}" ngModel></app-checkbox>
+                    
+                }
+                @case('textarea'){
+                    <app-text-area [field]="field" name="{{field.widget}}" ngModel ></app-text-area>
+                    
+                }
+                @case('date'){
+                    <app-date [field]="field" name="{{field.widget}}" ngModel></app-date>
+                    
+                }
+                @case('phonefield'){
+                    <app-phone [field]="field" name="{{field.widget}}" ngModel></app-phone>
+                    
+                }
+                @default {
+                    <p>Unknown field type: {{ field.widget }}</p>
+                }
+            }
+        }
+    </div>
+   
+    <input class="btn btn-primary" type="submit" value="Submit" [disabled]="dynamicForm.invalid">
+    @if(dynamicForm.invalid && dynamicForm.touched){
+        <div>
+            <small>*Please Fill the required fields</small>
+        </div>
+    }
+</form>
+</div>
+</div>

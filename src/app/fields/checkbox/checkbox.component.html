@@ -1,0 +1,9 @@
+<div class=" mb-3">
+    <label>CheckList any of them</label>
+    <div *ngFor="let option of field.options">
+      <input class="form-check-input mt-0" type="checkbox"  
+      [ngModel]="value?.includes(option)" 
+      (change)="onChecked($event,option)">
+      <label>{{option}}</label>
+    </div>
+</div>

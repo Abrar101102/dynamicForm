@@ -1,0 +1,16 @@
+<div class="radio mb-3">
+    <label>{{field.label}}</label>
+    <div class="form-check" *ngFor="let option of field.options">
+      <input 
+        class="form-check-input" 
+        type="radio" 
+        [value]="option"
+        [(ngModel)]="value"
+        (ngModelChange)="onOptionChange($event)"
+     
+      />
+      <label class="form-check-label" >
+        {{ option }}
+      </label>
+    </div>
+  </div>

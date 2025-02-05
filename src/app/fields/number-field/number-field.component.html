@@ -1,0 +1,18 @@
+<div class="mb-3">
+  <label class="form-label">{{ field.label }}</label>
+  <input
+    type="number"
+    [(ngModel)]="value"
+    class="form-control"
+    [placeholder]="field.placeholder"
+    (ngModelChange)="handleInput($event)"
+    (blur)="onTouched()"
+    [required]="field.required"
+    #number="ngModel"
+  />
+  @if(number.invalid && number.touched){
+    <div>
+        <small>*Number field is required</small>
+    </div>
+}
+</div>

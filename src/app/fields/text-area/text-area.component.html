@@ -1,0 +1,7 @@
+<div class="mb-3">
+    <textarea [placeholder]="field.placeholder" 
+    [(ngModel)]="value"
+     (ngModelChange)="onInput($event)"
+     (blur)="onTouched()" ></textarea>
+
+</div>

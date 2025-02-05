@@ -1,0 +1,12 @@
+<div class="combo mb-3">
+  <label>{{ field.label }}</label>
+  <select
+    [(ngModel)]="value"
+    (ngModelChange)="onValueChange($event)"
+    (blur)="onTouched()"
+  >
+    <option *ngFor="let option of field.properties.options" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+</div>

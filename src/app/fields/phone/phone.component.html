@@ -1,0 +1,23 @@
+<div class="mb-3">
+    <label class="form-label">{{ field.label }}</label>
+    <input
+      type="number"
+      [(ngModel)]="value"
+      class="form-control"
+      [placeholder]="field.placeholder"
+      (ngModelChange)="handleInput($event)"
+      (blur)="onTouched()"
+      [required]="field.required"
+      #phone="ngModel"
+    />
+    <!-- Required Validation -->
+  @if (phone.errors?.['required'] && phone.touched) {
+    <small >*This field is required</small>
+  }
+  <!-- Max Validation -->
+  @if (phone?.errors?.["length"] && phone.touched) {
+    <small >
+      *Phone number must be exactly {{ field.length }} digits
+    </small>
+  }
+  </div>

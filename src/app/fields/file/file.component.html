@@ -1,0 +1,13 @@
+<div class="mb-3">
+    <label class="form-label">{{ field.label }}</label>
+    <input
+      type="file"
+      class="form-control"
+      [attr.accept]="field.accept || '*/*'" 
+      (change)="onFileChange($event)"
+      (blur)="onTouched()"
+      [required]="field.required"
+      [attr.name]="field.widget"
+      #fileInput="ngModel"
+    />
+</div>

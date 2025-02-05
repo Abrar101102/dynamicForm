@@ -1,0 +1,107 @@
+[
+    {
+        "name":"field1",
+        "label":"Enter Name",
+        "widget":"textfield",
+        "placeholder":"Enter Name",
+        "disable":false,
+        "hidden":false,
+        "required":true,
+        "spellcheck":false
+ 
+    }, 
+    {
+        "name":"field2",
+        "label":"Pin",
+        "widget":"numberfield",
+        "placeholder":"",
+        "disable":false,
+        "hidden":false,
+        "required":true
+ 
+    },
+    {
+        "name":"field3",
+        "label":"Enter Email",
+        "widget":"email",
+        "placeholder":"Enter Email",
+        "disable":false,
+        "hidden":false,
+        "required":true,
+        "partten":""
+    },
+    {
+        "name":"field4",
+        "label":"select country",
+        "widget":"combo",
+        "placeholder":"",
+        "disable":false,
+        "hidden":false,
+        "required":false,
+        "properties":{
+            "options":["India","USA","Russia"],
+            "mode":"multi/single"
+        }
+ 
+    },
+    {
+        "name":"field5",
+        "label":"Select Gender",
+        "widget":"radio",
+        "placeholder":"",
+        "disable":false,
+        "hidden":false,
+        "required":true,
+        "options":["Male","Female","Trans"] 
+    },
+    {
+        "name":"field6",
+        "label":"Check",
+        "widget":"checkbox",
+        "placeholder":"",
+        "disable":false,
+        "hidden":false,
+        "required":false,
+        "options":["32","42","53"]
+    },
+    {
+        "name":"field7",
+        "label":"Address",
+        "widget":"textarea",
+        "placeholder":"Enter Address",
+        "disable":false,
+        "hidden":false,
+        "required":true,
+        "spellcheck":false
+ 
+    },
+    {
+        "name":"field8",
+        "label":"Select the date",
+        "widget":"date",
+        "placeholder":"select date",
+        "disable":false,
+        "hidden":false,
+        "required":true,
+        "format":"MM-DD-YY",
+        "minDate":"01-01-2010",
+        "maxDate":"12-31-2010",
+        "isFuturedate":false,
+        "isPastdate":false,
+        "isTodaydate":false,
+        "isRange":false,
+        "rangeMinDate":"01-01-2010",
+        "rangeMaxDate":"12-31-2010"
+    },
+    {
+        "name":"field9",
+        "label":"Enter PhoneNumber",
+        "widget":"phonefield",
+        "length":10,
+        "placeholder":"",
+        "disable":false,
+        "hidden":false,
+        "required":true,
+        "format":["IN","US"]
+    }
+]
