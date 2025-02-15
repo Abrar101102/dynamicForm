@@ -39,8 +39,8 @@ export class DynamicFormComponent {
     });
   }
   //function for handling textfield input
- updateData(value:string,key:string){
-  this.data[key]=value;
+ updateData(value:string){
+  console.log(value);
  }
 
 

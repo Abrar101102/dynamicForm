@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR,FormsModule } from '@angular/forms';
+import { Component, EventEmitter, forwardRef, Input, Output, ViewChild } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR,FormsModule, NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-textfield',
@@ -16,34 +16,25 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR,FormsModule } from '@angular/fo
     }
   ]
 })
-export class TextfieldComponent implements ControlValueAccessor{
+export class TextfieldComponent {
   @Input() field: any = {};
+  @Input() form :NgForm;
+  @ViewChild('name') name!: NgModel;
   @Output() onChangeData=new EventEmitter<string>();
   value: string = ''; // Stores input value
 
-  onChange: (value: string) => void = () => {};
-  onTouched: () => void = () => {};
-
-  writeValue(value: string) {
-    this.value = value || ''; // Ensure value is a string
-  }
-
-  registerOnChange(fn: any) {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: any) {
-    this.onTouched = fn;
+  ngAfterViewInit() {
+   
+      // Check if form already has this control (avoid errors)
+      if (!this.form.controls[this.field.widget]) {
+        this.form.controls[this.field.widget] = this.name.control;
+      }
   }
 
   onInputChange(value: string) {
-    this.value = value;
-    this.onChange(value);
+ 
     this.onChangeData.emit(this.value)// Notify the parent about the change
   }
 
-  onBlur() {
-    this.onTouched(); // Notify the parent when the input is touched
-  }
 
 }

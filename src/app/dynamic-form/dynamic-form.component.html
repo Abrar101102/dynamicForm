@@ -6,7 +6,7 @@
         @for (field of fields; track field.widget) {
             @switch (field.widget) {
                 @case ('textfield') {
-                    <app-textfield [field]="field" name="{{field.widget}}"  ngModel required></app-textfield>
+                    <app-textfield [field]="field"  [form]="dynamicForm" (onChangeData)="updateData($event)"></app-textfield>
                     
                 }
                 @case ('numberfield') {

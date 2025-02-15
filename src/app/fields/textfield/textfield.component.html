@@ -1,16 +1,16 @@
 <div class="mb-3">
     <label class="form-label">{{ field.label }}</label>
     <input
-      type="text"
-      class="form-control"
-      [placeholder]="field.placeholder"
-      [(ngModel)]="value"
-      (ngModelChange)="onInputChange($event)"
-      (blur)="onTouched()"
-      [required]="field.required"
-      [attr.name]="field.widget"
-      #name="ngModel"
-    />
+    type="text"
+    class="form-control"
+    [name]="field.widget"
+    [placeholder]="field.placeholder"
+    [(ngModel)]="value"
+    (ngModelChange)="onInputChange($event)"
+    [required]="field.required"
+    #name="ngModel"
+  />
+ 
     @if(name.invalid && name.touched){
       <div>
           <small>*Name Field is required</small>
